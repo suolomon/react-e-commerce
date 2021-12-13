@@ -1,10 +1,13 @@
-import { Facebook, Instagram, Mail, Phone, Room, Twitter } from "@material-ui/icons"
 import styled from "styled-components"
+import { Facebook, Instagram, Mail, Phone, Room, Twitter } from "@material-ui/icons"
+import { mobile } from "../responsive"
 
+
+const FooterWrapper = styled.div``
 
 const Container = styled.div`
  display: flex;
- flex-wrap: wrap;
+  ${mobile({flexDirection: "column"})}
 `
 const Left = styled.div`
  flex:1;
@@ -62,8 +65,15 @@ const Payment = styled.img`
  width: 50%;
 `
 
+const CopyrightText = styled.p`
+    text-align: center;
+    margin-bottom: 10px;
+`
+
 const Footer = () => {
     return (
+        <FooterWrapper>
+            
         <Container>
             <Left>
                 <Logo>E-Store</Logo>
@@ -81,18 +91,12 @@ const Footer = () => {
                         <Twitter/>
                     </SocialIcon>
                 </SocialContainer>
-                &copy; {new Date().getFullYear()}
+                
             </Left>
             <Center>
 
                 <Title>Resource links</Title>
                 <List>
-                    <ListItem>Lorem</ListItem>
-                    <ListItem>Lorem</ListItem>
-                    <ListItem>Lorem</ListItem>
-                    <ListItem>Lorem</ListItem>
-                    <ListItem>Lorem</ListItem>
-                    <ListItem>Lorem</ListItem>
                     <ListItem>Lorem</ListItem>
                     <ListItem>Lorem</ListItem>
                     <ListItem>Lorem</ListItem>
@@ -116,6 +120,10 @@ const Footer = () => {
                 <Payment src="https://i.ibb.co/Qfvn4z6/payment.png"/>
             </Right>
         </Container>
+            <CopyrightText>
+                &copy; {new Date().getFullYear()}
+            </CopyrightText>
+        </FooterWrapper>
     )
 }
 

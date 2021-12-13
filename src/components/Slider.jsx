@@ -1,15 +1,16 @@
+import styled from "styled-components"
 import { ArrowLeft, ArrowRight } from "@material-ui/icons"
 import { useState } from "react"
-import styled from "styled-components"
 import {SliderItems} from '../data'
+import { mobile } from "../responsive"
 
 const Container = styled.div`
  width: 100%;
  height: 100vh; 
  display: flex;
- /* background-color: #c1ccda; */
  position: relative;
  overflow: hidden;
+  ${mobile({display: "none"})}
 `
 const Arrow = styled.div`
  width: 50px;
@@ -48,7 +49,7 @@ const Slide = styled.div`
  height: 100vh;
  display: flex;
  align-items: center;
- background-color:#${props=>props.bg}
+ background-color:#${props=>props.bg};
 `
 
 const ImgContainer = styled.div`
@@ -121,7 +122,6 @@ const Slider = () => {
                 </Slide>
             ))}
 
-    
             </Wrapper>
             <Arrow direction="right" onClick={()=> handleClick("right")}>
                 <ArrowRight/>
